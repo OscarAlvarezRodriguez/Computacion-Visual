@@ -3,6 +3,7 @@ headless: true
 ---
 
 - **Shortcodes**
+- [GP-Visual]({{< relref "/docs/shortcodes/GP-Visual" >}})
 - [p5]({{< relref "/docs/shortcodes/p5" >}})
 - [Buttons]({{< relref "/docs/shortcodes/buttons" >}})
 - [Columns]({{< relref "/docs/shortcodes/columns" >}})
