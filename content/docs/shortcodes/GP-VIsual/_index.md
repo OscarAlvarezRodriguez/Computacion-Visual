@@ -2,9 +2,9 @@
 bookCollapseSection: true
 ---
 
-# p5
+# GP Visual
 
-This is the first project, optical illusion
+This is the first project, optical illusion.
 
 ## Types
 
