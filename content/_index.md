@@ -3,11 +3,16 @@ title: Introduction
 type: docs
 ---
 
-# Visual Computing Template
+# Visual Computing Course
 
 Welcome to the [UN / DISI](http://www.ingenieria.unal.edu.co/dependencias/departamentos/departamento-de-ingenieria-de-sistemas-e-industrial) _visual computing_ course template site.
 
-## Goal
+## Members
+{{< hint info >}}
+* Oscar Eduardo Alvarez: Computer and Systems Engineering Student at the National University.
+* Nicolas Caro Sanabria: Computer and Systems Engineering Student at the National University.
+* Valentina Viafara Esteban: Computer and Systems Engineering Student at the National University. This is my first approach to visual computing, so i have high expectations in the development of the course and its activities that help me generate new skills.
+{{< /hint >}}
 
 To study the process of creation and manipulation of a digital image of a modern visual application, using current hardware.
 
