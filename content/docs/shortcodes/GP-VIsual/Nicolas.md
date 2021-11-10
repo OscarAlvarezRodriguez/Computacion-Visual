@@ -15,7 +15,7 @@ Este efecto ha sido atribuido a la adaptación de las neuronas encargadas de per
 
 <center>
 <br>
-<img src="../Assets/images/spokes.gif" width="420" height="420" />
+<img src="../Assets/images/Lilac-Chaser.gif" width="420" height="420" />
 </center>
 
 El efecto Troxler puede ocurrir sin ninguna estabilización extrema de la imagen retinal en la visión periférica. Esto significa que los movimientos pequeños e involuntarios hechos al fijarse en algo fallan en mover el estimulo a un nuevo campo receptivo de las células, en efecto dando una estimulación sin variación.
