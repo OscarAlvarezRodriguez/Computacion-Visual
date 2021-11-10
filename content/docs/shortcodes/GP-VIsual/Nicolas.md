@@ -9,7 +9,7 @@ Este efecto ocurre cuando uno se fija en un punto particular por un corto period
 {{< columns >}}
 
 <--->
-<img src="../Assets/images/Troxler-Effekt.jpg" width="350" height="350" />
+<img src="../Assets/images/Troxler-Effekt.jpg" width="600" height="600" />
 <--->
 {{< /columns >}}
 
@@ -18,7 +18,7 @@ Este efecto ha sido atribuido a la adaptación de las neuronas encargadas de per
 {{< columns >}}
 
 <--->
-<img src="../Assets/images/Lilac-Chaser.gif" width="350" height="350" />
+<img src="../Assets/images/Lilac-Chaser.gif" width="600" height="600" />
 <--->
 {{< /columns >}}
 
