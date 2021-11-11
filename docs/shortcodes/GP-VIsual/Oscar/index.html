@@ -10,13 +10,13 @@
 &ldquo;Nunca se ha demostrado que los rayos ilusorios atraviesen el fondo de un diseño&rdquo;, dijo Karlovich a Live Science. &ldquo;Todas las demás ilusiones que implican líneas ilusorias se limitan a los diseños de cuadrícula&rdquo;.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://oscaralvarezrodriguez.github.io/Computacion-Visual/docs/shortcodes/GP-VIsual/Oscar/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-11-04T00:14:55-05:00">
+<meta property="article:modified_time" content="2021-11-11T09:16:49-05:00">
 <title>Oscar | Visual Computing</title>
 <link rel=manifest href=/Computacion-Visual/manifest.json>
 <link rel=icon href=/Computacion-Visual/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/Computacion-Visual/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/Computacion-Visual/flexsearch.min.js></script>
-<script defer src=/Computacion-Visual/en.search.min.e67b46f5f9befe53af0d298e8dd5059500abf0a462d8d3cee149ab45296820cc.js integrity="sha256-5ntG9fm+/lOvDSmOjdUFlQCr8KRi2NPO4UmrRSloIMw=" crossorigin=anonymous></script>
+<script defer src=/Computacion-Visual/en.search.min.2586fa9f061853efe08cdea6eb795ba487113503783d23b0e8777c8b5e915f41.js integrity="sha256-JYb6nwYYU+/gjN6m63lbpIcRNQN4PSOw6Hd8i16RX0E=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -170,12 +170,86 @@ Ilusión óptica - Conexión diagonal de los puntos de intersección
 <div class="flex-even markdown-inner">
 </div>
 </div>
+<iframe style=width:625px;height:425px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js></script>
+            
+            
+            
+            
+            
+            <script>
+              
+let rSlider, gSlider, radioSlider, r;
+
+function setup() {
+  // create canvas
+  createCanvas(600, 400);
+  textSize(15);
+
+  // create sliders
+  circleXSlider = createSlider(2, 30, 5);
+  circleXSlider.position(20, 20);
+  circleYSlider = createSlider(2, 30, 5);
+  circleYSlider.position(20, 50);
+  radioSlider = createSlider(2, 30, 5);
+  radioSlider.position(20, 80);
+  
+}
+
+function draw() {
+  background(0, 0, 0);
+  fill(255, 255, 255);
+  text(str(circleXSlider.value() + ' - circlesX'), circleXSlider.x * 2 + circleXSlider.width, 35);
+  text(str(circleYSlider.value() + ' - circlesY'), circleYSlider.x * 2 + circleYSlider.width, 65);
+  text(str(radioSlider.value() + ' - Radio'), radioSlider.x * 2 + radioSlider.width, 95);
+  
+  noStroke();
+  fill(177,177,177);
+  for (let i = 1; i < circleYSlider.value()+1; i += 1) {
+    rect(0, (height*i)/(circleYSlider.value()+1)-(radioSlider.value()/2), width, radioSlider.value());
+  }
+  
+  for (let i = 1; i < circleXSlider.value()+1; i += 1) {
+    rect((width*i)/(circleXSlider.value()+1)-(radioSlider.value()/2), 0, radioSlider.value(),height);
+  }
+  
+  fill(255, 255, 255);
+  for (let i = 1; i < circleXSlider.value()+1; i += 1) {
+    for (let j = 1; j < circleYSlider.value()+1; j += 1) {
+      circle((width*i)/(circleXSlider.value()+1), (height*j)/(circleYSlider.value()+1), radioSlider.value()+1);
+    }
+  }
+}
+
+function keyPressed(){
+  let keyIndex = -1;
+  if (key >= 'a' && key <= 'z') {
+    keyIndex = key.charCodeAt(0) - 'a'.charCodeAt(0);
+  }
+  if (keyIndex === -1) {
+    circleXSlider.value(5);
+    circleYSlider.value(5);
+    radioSlider.value(5);
+  }
+}
+
+
+            </script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/OscarAlvarezRodriguez/Computacion-Visual/commit/0e17b4223c2ef6ff428c30b6b7eab9acc169e88b title="Last modified by oalvarezr | November 4, 2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/OscarAlvarezRodriguez/Computacion-Visual/commit/718fc6ec0aa58163cea11b55c5fd6f37aa6f2e62 title="Last modified by oalvarezr | November 11, 2021" target=_blank rel=noopener>
 <img src=/Computacion-Visual/svg/calendar.svg class=book-icon alt=Calendar>
-<span>November 4, 2021</span>
+<span>November 11, 2021</span>
 </a>
 </div>
 </div>
