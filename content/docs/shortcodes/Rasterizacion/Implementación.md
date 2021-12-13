@@ -2,4 +2,8 @@
 
 ## Rasterización de circulos
 
-### Implementación
+### Implementación - Algoritmo de Rasterización de circulo de Bresenham
+
+<body>
+<script src="../Assets/script.js"></script>
+</body>
