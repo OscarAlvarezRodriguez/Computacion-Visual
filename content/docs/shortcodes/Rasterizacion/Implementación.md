@@ -5,7 +5,7 @@
 ### Implementación - Algoritmo de Rasterización de Circulo de Bresenham
 
 
-<p5-global-iframe width="625" height="425" >
+{{< p5-global-iframe width="625" height="625" >}}
 
 let x, y, r, d, xc, yc;
 
@@ -81,4 +81,4 @@ function fillPixel(x, y) {
   square(x, y, scalFact);
 }
 
-</p5-global-iframe >
+{{< /p5-global-iframe >}}
