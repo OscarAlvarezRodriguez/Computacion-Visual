@@ -2,19 +2,19 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="TAREA 2 - Implementación de un algoritmo de rasterización #  Rasterización de circulos #  Ejemplo #  ">
+<meta name=description content="TAREA 2 - Implementación de un algoritmo de rasterización #  Rasterización de circulos #  Ejemplo de en donde puede aplicarse algún algoritmo de rasterización de circulos. #  Antes de observar los ejemplos lea las primeras dos partes Contextualización e Implementación que permite la compresión más a fondo de por qué seria efectivo aplicar la rasterización de circulos principalmente en videojuegos antiguos de pixel art (hay que tener en cuenta que en cada frame del video juego se debe redibujar y calcular los objetos)">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
-<meta property="og:description" content="TAREA 2 - Implementación de un algoritmo de rasterización #  Rasterización de circulos #  Ejemplo #  ">
+<meta property="og:description" content="TAREA 2 - Implementación de un algoritmo de rasterización #  Rasterización de circulos #  Ejemplo de en donde puede aplicarse algún algoritmo de rasterización de circulos. #  Antes de observar los ejemplos lea las primeras dos partes Contextualización e Implementación que permite la compresión más a fondo de por qué seria efectivo aplicar la rasterización de circulos principalmente en videojuegos antiguos de pixel art (hay que tener en cuenta que en cada frame del video juego se debe redibujar y calcular los objetos)">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://oscaralvarezrodriguez.github.io/Computacion-Visual/docs/shortcodes/Rasterizacion/Ejemplo/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-12-12T16:35:53-05:00">
+<meta property="article:modified_time" content="2021-12-13T10:11:24-05:00">
 <title>Ejemplo | Visual Computing</title>
 <link rel=manifest href=/Computacion-Visual/manifest.json>
 <link rel=icon href=/Computacion-Visual/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/Computacion-Visual/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/Computacion-Visual/flexsearch.min.js></script>
-<script defer src=/Computacion-Visual/en.search.min.1788bed9a449323a036f3107d90cea87768d5efd97748272bde8596780a857ae.js integrity="sha256-F4i+2aRJMjoDbzEH2Qzqh3aNXv2XdIJyvehZZ4CoV64=" crossorigin=anonymous></script>
+<script defer src=/Computacion-Visual/en.search.min.bb6aa23172c6e3a5c38263c8072ef29396b18c351787c7728f58b2c71f4a2ba0.js integrity="sha256-u2qiMXLG46XDgmPIBy7yk5axjDUXh8dyj1iyxx9KK6A=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -157,7 +157,7 @@ Blog
 <ul>
 <li><a href=#rasterización-de-circulos>Rasterización de circulos</a>
 <ul>
-<li><a href=#ejemplo>Ejemplo</a></li>
+<li><a href=#ejemplo-de-en-donde-puede-aplicarse-algún-algoritmo-de-rasterización-de-circulos>Ejemplo de en donde puede aplicarse algún algoritmo de rasterización de circulos.</a></li>
 </ul>
 </li>
 </ul>
@@ -174,16 +174,64 @@ TAREA 2 - Implementación de un algoritmo de rasterización
 Rasterización de circulos
 <a class=anchor href=#rasterizaci%c3%b3n-de-circulos>#</a>
 </h2>
-<h3 id=ejemplo>
-Ejemplo
-<a class=anchor href=#ejemplo>#</a>
+<h3 id=ejemplo-de-en-donde-puede-aplicarse-algún-algoritmo-de-rasterización-de-circulos>
+Ejemplo de en donde puede aplicarse algún algoritmo de rasterización de circulos.
+<a class=anchor href=#ejemplo-de-en-donde-puede-aplicarse-alg%c3%ban-algoritmo-de-rasterizaci%c3%b3n-de-circulos>#</a>
 </h3>
+<p>Antes de observar los ejemplos lea las primeras dos partes Contextualización e Implementación que permite la compresión más a fondo de por qué seria efectivo aplicar la rasterización de circulos principalmente en videojuegos antiguos de pixel art (hay que tener en cuenta que en cada frame del video juego se debe redibujar y calcular los objetos)</p>
+<p>Hay que primero recordar que la rasterización de circulos es un método para dibujar de manera efectiva circulos (perfectos) y con variaciones dibujar elipses.</p>
+<p>Ahora bien &ldquo;&ldquo;VENTAJAS&rdquo;&rdquo; y &ldquo;&ldquo;DESVENTAJAS&rdquo;&rdquo;</p>
+<p>La primer imagen que se va a mostrar es la silueta principal de una bomba utilizada en mario bros se deben destacar tres cosas de aqui:</p>
+<div class="book-columns flex flex-wrap">
+<div class="flex-even markdown-inner">
+El contorno de la bomba imita a un circulo casi perfecto.
+</div>
+<div class="flex-even markdown-inner">
+El brillo de la bomba son circulos, todos con el mismo centro es decir solo varia el radio.
+</div>
+<div class="flex-even markdown-inner">
+la mecha son 2 circulos que oscilan de radio uno y dos
+</div>
+</div>
+<center>
+<img src=../Assets/gifts/mario.gif width=400 height=400 alt="Gift de mario y su bomba">
+</center>
+<p>Eso en el uno de los juegos más conocidos, ahora se mostrará dos escenas de Sonic donde se evidencian circulos bien definidos, que pueden ser calculados con rasterización.</p>
+<div class="book-columns flex flex-wrap">
+<div class="flex-even markdown-inner">
+<center>
+<img src=../Assets/images/games_sonic_dash_widescreen_04.jpg width=400 height=400 alt="Imagen de Sonic 3d en medio de una carrera">
+<p>Los anillos de oro que debe recoger Sonic son circulos casi perfectos, que denotan un grosor, a manera rapida de explicación se calcula el exterior, el interior y luego se rellena.</p>
+</center>
+</div>
+<div class="flex-even markdown-inner">
+<center>
+<img src=../Assets/images/Sonic-CD-for-Android-577445225f9b585875934158.png width=330 height=400 alt="Sonic en el primer nivel de un videojuego">
+<p>La espiral es el primer circulo perfecto que salta a la vista, sin embargo los controles que se muestran gris transparente en la parte inferior tambien poseen estos circulos.</p>
+</center>
+</div>
+</div>
+<p>Para finalizar, el ejemplo más ilustrativo de que sin importar las generaciones de gráficos computacionales se puede utilizar la rasterización de circulos, principalmente en los contornos.</p>
+<div class="book-columns flex flex-wrap">
+<div class="flex-even markdown-inner">
+<img src=../Assets/images/Star1.png width=330 height=400 alt="Moneda 1 mario">
+</div>
+<div class="flex-even markdown-inner">
+<img src=../Assets/images/Star2.png width=330 height=400 alt="Moneda 2 mario">
+</div>
+<div class="flex-even markdown-inner">
+<img src=../Assets/images/Star3.png width=330 height=400 alt="Moneda 3 mario">
+</div>
+<div class="flex-even markdown-inner">
+<img src=../Assets/images/Star4.png width=330 height=400 alt="Moneda 4 mario">
+</div>
+</div>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/OscarAlvarezRodriguez/Computacion-Visual/commit/275f5a0d7274b4efe86ee3bfa406586030feab19 title="Last modified by oalvarezr | December 12, 2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/OscarAlvarezRodriguez/Computacion-Visual/commit/7c703b8bd226dc74fc15f9d6f86346466579ca7a title="Last modified by oalvarezr | December 13, 2021" target=_blank rel=noopener>
 <img src=/Computacion-Visual/svg/calendar.svg class=book-icon alt=Calendar>
-<span>December 12, 2021</span>
+<span>December 13, 2021</span>
 </a>
 </div>
 </div>
@@ -201,7 +249,7 @@ Ejemplo
 <ul>
 <li><a href=#rasterización-de-circulos>Rasterización de circulos</a>
 <ul>
-<li><a href=#ejemplo>Ejemplo</a></li>
+<li><a href=#ejemplo-de-en-donde-puede-aplicarse-algún-algoritmo-de-rasterización-de-circulos>Ejemplo de en donde puede aplicarse algún algoritmo de rasterización de circulos.</a></li>
 </ul>
 </li>
 </ul>
