@@ -2,10 +2,10 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="TAREA 2 - Implementación de un algoritmo de rasterización #  Rasterización de circulos #  Implementación - Algoritmo de Rasterización de circulo de Bresenham #            ">
+<meta name=description content="TAREA 2 - Implementación de un algoritmo de rasterización #  Rasterización de circulos #  Implementación - Algoritmo de Rasterización de circulo de Bresenham #   let x, y, r, d, xc, yc; let i = 0; let grids = 20; let scalFact; function setup() { createCanvas(600, 600); background(0); scalFact = width / grids; r = 6 * scalFact; xc = 10 * scalFact; yc = 10 * scalFact; showGrids(); showRefCircle(); bresenham(); } function showGrids() { stroke(200); for (i; i   ">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
-<meta property="og:description" content="TAREA 2 - Implementación de un algoritmo de rasterización #  Rasterización de circulos #  Implementación - Algoritmo de Rasterización de circulo de Bresenham #            ">
+<meta property="og:description" content="TAREA 2 - Implementación de un algoritmo de rasterización #  Rasterización de circulos #  Implementación - Algoritmo de Rasterización de circulo de Bresenham #   let x, y, r, d, xc, yc; let i = 0; let grids = 20; let scalFact; function setup() { createCanvas(600, 600); background(0); scalFact = width / grids; r = 6 * scalFact; xc = 10 * scalFact; yc = 10 * scalFact; showGrids(); showRefCircle(); bresenham(); } function showGrids() { stroke(200); for (i; i   ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://oscaralvarezrodriguez.github.io/Computacion-Visual/docs/shortcodes/Rasterizacion/Implementaci%C3%B3n/"><meta property="article:section" content="docs">
 <title>Implementación | Visual Computing</title>
@@ -13,7 +13,7 @@
 <link rel=icon href=/Computacion-Visual/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/Computacion-Visual/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/Computacion-Visual/flexsearch.min.js></script>
-<script defer src=/Computacion-Visual/en.search.min.37e870b53b4f2871bbd7fa5727aaf69d6e4a27b142553ff382e1ba2c89944bcc.js integrity="sha256-N+hwtTtPKHG71/pXJ6r2nW5KJ7FCVT/zguG6LImUS8w=" crossorigin=anonymous></script>
+<script defer src=/Computacion-Visual/en.search.min.4e81c1d07aa132435338c47c782494c0743b17ed80f203098f50f07b614546f1.js integrity="sha256-ToHB0HqhMkNTOMR8eCSUwHQ7F+2A8gMJj1Dwe2FFRvE=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -177,19 +177,9 @@ Rasterización de circulos
 Implementación - Algoritmo de Rasterización de circulo de Bresenham
 <a class=anchor href=#implementaci%c3%b3n---algoritmo-de-rasterizaci%c3%b3n-de-circulo-de-bresenham>#</a>
 </h3>
-<head>
-<script src=js/p5.js></script>
-<script src=js/p5.dom.min.js></script>
-<script src=js/p5.sound.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js></script>
-<script src=https://code.jquery.com/jquery-1.11.1.js></script>
-<script src=https://canvasjs.com/assets/script/canvasjs.min.js></script>
-<script src=../Assets/script.js></script>
-<link rel=stylesheet type=text/css href=css/style.css>
-<meta charset=utf-8>
-</head>
-<body>
-</body></article>
+<script>let x,y,r,d,xc,yc,i=0,grids=20,scalFact;function setup(){createCanvas(600,600),background(0),scalFact=width/grids,r=6*scalFact,xc=10*scalFact,yc=10*scalFact,showGrids(),showRefCircle(),bresenham()}function showGrids(){stroke(200);for(i;i<grids*scalFact;i+=scalFact)line(i,0,i,height),line(0,i,width,i)}function showRefCircle(){stroke(200),noFill(),circle(xc+scalFact/2,yc+scalFact/2,r*2)}function bresenham(){for(x=0,y=r,d=3*scalFact-2*r,symPlot();x<=y;)d<=0?d=d+4*x+6*scalFact:(d=d+4*x-4*y+10*scalFact,y-=scalFact),x+=scalFact,symPlot()}function symPlot(){fillPixel(x+xc,y+yc),fillPixel(x+xc,-y+yc),fillPixel(-x+xc,-y+yc),fillPixel(-x+xc,y+yc),fillPixel(y+xc,x+yc),fillPixel(y+xc,-x+yc),fillPixel(-y+xc,-x+yc),fillPixel(-y+xc,x+yc)}function fillPixel(a,b){noStroke(),squareColor=color(0,128,0),squareColor.setAlpha(100),fill(squareColor),square(a,b,scalFact)}</script><blockquote>
+</blockquote>
+</article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
 </div>
