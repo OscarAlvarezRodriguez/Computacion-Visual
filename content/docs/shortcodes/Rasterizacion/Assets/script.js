@@ -1,4 +1,3 @@
-// initial values
 let x, y, r, d, xc, yc;
 
 let i = 0;
