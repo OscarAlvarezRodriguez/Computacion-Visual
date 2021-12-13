@@ -2,9 +2,10 @@
 
 ## Rasterización de circulos
 
-### Implementación - Algoritmo de Rasterización de Bresenham
+### Implementación - Algoritmo de Rasterización de Circulo de Bresenham
 
-<script>
+
+<p5-global-iframe width="625" height="425" >
 
 let x, y, r, d, xc, yc;
 
@@ -79,4 +80,5 @@ function fillPixel(x, y) {
   fill(squareColor);
   square(x, y, scalFact);
 }
-</script>
+
+</p5-global-iframe >
