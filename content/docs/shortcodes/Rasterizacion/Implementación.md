@@ -4,9 +4,9 @@
 
 ### Implementación - Algoritmo de Rasterización de Bresenham
 
-<center>
 <script>
-    let x, y, r, d, xc, yc;
+
+let x, y, r, d, xc, yc;
 
 let i = 0;
 let grids = 20;
@@ -80,4 +80,3 @@ function fillPixel(x, y) {
   square(x, y, scalFact);
 }
 </script>
-</center>
