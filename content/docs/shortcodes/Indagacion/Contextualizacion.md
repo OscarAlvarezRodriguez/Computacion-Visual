@@ -27,7 +27,7 @@ La imagen en la izquierda fue renderizada con un renderizado típico de iluminac
 La imagen en la derecha fue renderizada utilizando un algoritmo de radiosidad. Solo hay una fuente de luz: una imagen puesta en el cielo afuera de la ventana. La diferencia es marcada, la habitación brilla con luz, las sombras suaves son visibles en el piso y los efectos sutiles de iluminación son notables alrededor del cuarto. Adicionalmente, el color rojo de la alfombra se ha desangrado a las paredes grises, dando una apariencia más cálida. Ninguno de estos efectos fue específicamente escogidos o diseñados por el artista.
 
 <center>
-<img src="../Assets/images/Radio2.png" width="600" height="600" alt="Iteraciones"/>
+<img src="../Assets/images/Radio2.png" width="1000" height="1000" alt="Iteraciones"/>
 </center>
 
 A Medida que el algoritmo itera, la luz puede verse fluir en la escena, a medida que múltiples 
