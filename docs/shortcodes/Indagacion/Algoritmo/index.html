@@ -2,19 +2,21 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="TAREA 2 - Indagación sobre método de Iluminación Global #  Radiosidad (Gráficos computacionales) #  Algoritmo #  ">
+<meta name=description content="TAREA 2 - Indagación sobre método de Iluminación Global #  Radiosidad (Gráficos computacionales) #  1. Explicación del algoritmos de radiosidad #  Para la implementación de algoritmos de radiosidad se consideran todos los puntos y objetos de la escena y la luz que llega a cada uno, de ahí que se tomen como luces potenciales con luz propia (luz directa) o proveniente de otros objetos (luz indirecta).
+También es una aplicación del método de los elementos finitos para resolver la ecuación de renderizado, extendido hasta calcular la interacción de reflexión difusa entre objetos de una escena, simulando transferencia de luz.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
-<meta property="og:description" content="TAREA 2 - Indagación sobre método de Iluminación Global #  Radiosidad (Gráficos computacionales) #  Algoritmo #  ">
+<meta property="og:description" content="TAREA 2 - Indagación sobre método de Iluminación Global #  Radiosidad (Gráficos computacionales) #  1. Explicación del algoritmos de radiosidad #  Para la implementación de algoritmos de radiosidad se consideran todos los puntos y objetos de la escena y la luz que llega a cada uno, de ahí que se tomen como luces potenciales con luz propia (luz directa) o proveniente de otros objetos (luz indirecta).
+También es una aplicación del método de los elementos finitos para resolver la ecuación de renderizado, extendido hasta calcular la interacción de reflexión difusa entre objetos de una escena, simulando transferencia de luz.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://oscaralvarezrodriguez.github.io/Computacion-Visual/docs/shortcodes/Indagacion/Algoritmo/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-12-12T04:33:15-05:00">
+<meta property="article:modified_time" content="2021-12-14T04:13:48-05:00">
 <title>Algoritmo | Visual Computing</title>
 <link rel=manifest href=/Computacion-Visual/manifest.json>
 <link rel=icon href=/Computacion-Visual/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/Computacion-Visual/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/Computacion-Visual/flexsearch.min.js></script>
-<script defer src=/Computacion-Visual/en.search.min.830779909b7a14b1b11aeef20dcba1f509e0fc563ee3490f334a7ced00aab870.js integrity="sha256-gwd5kJt6FLGxGu7yDcuh9Qng/FY+40kPM0p87QCquHA=" crossorigin=anonymous></script>
+<script defer src=/Computacion-Visual/en.search.min.7d7136f1ff19414052a7c9994275f13d775654b2efdcdd7274787cd40d5eea4e.js integrity="sha256-fXE28f8ZQUBSp8mZQnXxPXdWVLLv3N1ydHh81A1e6k4=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -155,11 +157,10 @@ Blog
 <ul>
 <li><a href=#tarea-2---indagación-sobre-método-de-iluminación-global>TAREA 2 - Indagación sobre método de Iluminación Global</a>
 <ul>
-<li><a href=#radiosidad-gráficos-computacionales>Radiosidad (Gráficos computacionales)</a>
-<ul>
-<li><a href=#algoritmo>Algoritmo</a></li>
-</ul>
-</li>
+<li><a href=#radiosidad-gráficos-computacionales>Radiosidad (Gráficos computacionales)</a></li>
+<li><a href=#1--explicación-del-algoritmos-de-radiosidad>1. Explicación del algoritmos de radiosidad</a></li>
+<li><a href=#la-ecuación-de-radiosidad>La ecuación de radiosidad</a></li>
+<li><a href=#referencias>Referencias</a></li>
 </ul>
 </li>
 </ul>
@@ -174,16 +175,83 @@ TAREA 2 - Indagación sobre método de Iluminación Global
 Radiosidad (Gráficos computacionales)
 <a class=anchor href=#radiosidad-gr%c3%a1ficos-computacionales>#</a>
 </h2>
-<h3 id=algoritmo>
-Algoritmo
-<a class=anchor href=#algoritmo>#</a>
-</h3>
+<h2 id=1--explicación-del-algoritmos-de-radiosidad>
+1. Explicación del algoritmos de radiosidad
+<a class=anchor href=#1--explicaci%c3%b3n-del-algoritmos-de-radiosidad>#</a>
+</h2>
+<p>Para la implementación de algoritmos de radiosidad se consideran todos los puntos y objetos de la escena y la luz que llega a cada uno, de ahí que se tomen como luces potenciales con luz propia (luz directa) o proveniente de otros objetos (luz indirecta).</p>
+<p>También es una aplicación del método de los elementos finitos para resolver la ecuación de renderizado, extendido hasta calcular la interacción de reflexión difusa entre objetos de una escena, simulando transferencia de luz.</p>
+<p>Una de las maneras, dentro de estos algoritmos, para disminuir la complejidad computacional es manejar la interacción de los objetos en una escena sea difusa y que todos los rayos de luz sean reflejados de forma homogénea y con la misma intensidad en todas las direcciones. De manera que los cálculos sean independientes de la posición de la cámara.</p>
+<center>
+<img src=../Assets/images/radiosidadAlg9.jpg width=600 height=600 alt="Base radiosity">
+</center>
+<p><br><br></p>
+<h2 id=la-ecuación-de-radiosidad>
+La ecuación de radiosidad
+<a class=anchor href=#la-ecuaci%c3%b3n-de-radiosidad>#</a>
+</h2>
+<p>El cálculo de radiosidad se define como la energía por unidad de área que sale de una superficie por unidad de tiempo, pero asumiendo un equilibrio en la energía se ignora de la ecuación del tiempo. Es decir que esta ecuación se puede describir como la suma de la energía emitida por la superficie (luz directa, fuentes de luz) y la energía reflejada proveniente de otras superficies:</p>
+<p>De manera general, entonces, la ecuación se puede definir como:</p>
+<center>
+<img src=../Assets/images/radiosidadAlg1.png width=600 height=600 alt="Base radiosity">
+</center>
+<p>Más detalladamente:
+<blockquote class="book-hint info">
+<link rel=stylesheet href=/Computacion-Visual/katex/katex.min.css>
+<script defer src=/Computacion-Visual/katex/katex.min.js></script>
+<script defer src=/Computacion-Visual/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span>
+\[ B_{i} = E_{i} + R_{i} \int B_{j}F_{ij}
+\]
+</span>
+</blockquote>
+</p>
+<p>donde:</p>
+<center>
+<img src=../Assets/images/radiosidadAlg3.png width=600 height=600 alt="Base radiosity">
+</center>
+<p>Existe un problema respecto a esta ecuación, dado que trabaja con una integral que maneja una realidad continua, lo cúal es inmanejable computacionalmente. De modo que se hace necesario discretizar la ecuación, que sirva para un número finito de elementos. De manera que la ecuación queda de la siguiente manera:</p>
+<blockquote class="book-hint info">
+<span>
+\[B_{i} = E_{i} + R_{i} \sum B_{j}F_{ij}\]
+</span>
+</blockquote>
+<p>Podemos representar también nuestra ecuación de manera matricial, como se muestra a continuación:</p>
+<center>
+<img src=../Assets/images/radiosidadAlg5.png width=600 height=600 alt="Base radiosity">
+</center>
+<p>Como se observa, la fila de la matriz representa la interrelación de cada elemento continuo de iluminación con el resto de la escena.</p>
+<p>El cálculo de la ecuación de radiosidad implica a su vez calcular variables distintas de forma independiente. Ri es un factor multiplicativo de reflexión, que es dependiente del material del objeto tratado. De esta forma, Ri es un valor conocido y almacenado por cada objeto de nuestra escena. Sin embargo, Fij es una variable mucho más compleja que implica cálculos de extraordinaria complejidad. Se denomina factor de forma, y modela la relación espacial entre dos objetos en términos de distancia y ángulo entre sus normales. De esta forma, tenemos un parámetro indicativo de la cantidad de luz reflejada por un corrector j que alcanza el corrector i que está siendo analizado. La figura 6 muestra gráficamente esta relación entre correctores [1].</p>
+<center>
+<img src=../Assets/images/radiosidadAlg6.png width=600 height=600 alt="Base radiosity">
+</center>
+<p>Se define el factor de forma entre dos elementos, donde Ai y Aj es la proporción de energía que desde Ai alcanza Aj respecto del total de energía que abandona Ai. Expresado en forma de ecuación:</p>
+<blockquote class="book-hint info">
+<span>
+\[F_{ij} = \frac{1}{A_{i}} \int_{A_{i}}^{} \int_{A_{j}}^{} \frac{cos \theta _{i} cos \theta _{j}}{\pi r^{2}}dA_{j}dA_{i}\]
+</span>
+</blockquote>
+<p>Otra representación es la siguiente:
+<blockquote class="book-hint info">
+<span>
+\[B(x) dA = E(x)dA + R(x)dA \int_{S}^{} B(x')\frac{1}{\pi r^{2}}cos\theta _{x}cos\theta _{x'}H(x,x')dA\]
+</span>
+</blockquote>
+</p>
+<p>Dado que calcular la integral del factor de forma es complicado existen dos métodos: hemicubo y hemisferio que presentan un enfoque geométrico para comprender esta ecuación de factores.</p>
+<p><br><br></p>
+<h2 id=referencias>
+Referencias
+<a class=anchor href=#referencias>#</a>
+</h2>
+<p>[1] (S/f). Blackspiral.org. Recuperado el 10 de diciembre de 2021, de <a href=http://blackspiral.org/docs/radiosidad/guion.pdf>http://blackspiral.org/docs/radiosidad/guion.pdf</a></p>
+<p>[2] (s/f). Iluminación Global en DirectCompute. Edu.ar. Recuperado el 10 de diciembre de 2021, de <a href="https://rdu.unc.edu.ar/bitstream/handle/11086/2771/MOPE17147.pdf?sequence=1&isAllowed=y">https://rdu.unc.edu.ar/bitstream/handle/11086/2771/MOPE17147.pdf?sequence=1&isAllowed=y</a></p>
+<p>[3] (S/f-b). Acta.es. Recuperado el 10 de diciembre de 2021, de <a href=https://www.acta.es/medios/articulos/informatica_y_computacion/055061.pdf>https://www.acta.es/medios/articulos/informatica_y_computacion/055061.pdf</a></p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/OscarAlvarezRodriguez/Computacion-Visual/commit/94ab85d36961bfcf021cb2c4baea28cc71c09532 title="Last modified by oalvarezr | December 12, 2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/OscarAlvarezRodriguez/Computacion-Visual/commit/9c4dead22580d40bd0a60eaf30c2c1f87bd52164 title="Last modified by vviafarae@unal.edu.co | December 14, 2021" target=_blank rel=noopener>
 <img src=/Computacion-Visual/svg/calendar.svg class=book-icon alt=Calendar>
-<span>December 12, 2021</span>
+<span>December 14, 2021</span>
 </a>
 </div>
 </div>
@@ -199,11 +267,10 @@ Algoritmo
 <ul>
 <li><a href=#tarea-2---indagación-sobre-método-de-iluminación-global>TAREA 2 - Indagación sobre método de Iluminación Global</a>
 <ul>
-<li><a href=#radiosidad-gráficos-computacionales>Radiosidad (Gráficos computacionales)</a>
-<ul>
-<li><a href=#algoritmo>Algoritmo</a></li>
-</ul>
-</li>
+<li><a href=#radiosidad-gráficos-computacionales>Radiosidad (Gráficos computacionales)</a></li>
+<li><a href=#1--explicación-del-algoritmos-de-radiosidad>1. Explicación del algoritmos de radiosidad</a></li>
+<li><a href=#la-ecuación-de-radiosidad>La ecuación de radiosidad</a></li>
+<li><a href=#referencias>Referencias</a></li>
 </ul>
 </li>
 </ul>

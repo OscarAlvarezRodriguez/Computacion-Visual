@@ -2,19 +2,23 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="TAREA 2 - Implementación de un algoritmo de rasterización #  Rasterización de circulos #  Contextualizacion #  ">
+<meta name=description content="TAREA 2 - Implementación de un algoritmo de rasterización #  
+Contextualizacion - Rasterización de circulos #  Este es un algoritmo de muestreo que se efectúa en un dominio discreto, se usa para determinar los puntos necesarios para rasterizar un círculo aprovechando también la simetría del mismo.
+  Un ejemplo de ciento cincuenta círculos concéntricos dibujados con el algoritmo de círculo de punto medio.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
-<meta property="og:description" content="TAREA 2 - Implementación de un algoritmo de rasterización #  Rasterización de circulos #  Contextualizacion #  ">
+<meta property="og:description" content="TAREA 2 - Implementación de un algoritmo de rasterización #  
+Contextualizacion - Rasterización de circulos #  Este es un algoritmo de muestreo que se efectúa en un dominio discreto, se usa para determinar los puntos necesarios para rasterizar un círculo aprovechando también la simetría del mismo.
+  Un ejemplo de ciento cincuenta círculos concéntricos dibujados con el algoritmo de círculo de punto medio.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://oscaralvarezrodriguez.github.io/Computacion-Visual/docs/shortcodes/Rasterizacion/Contextualizacion/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-12-12T16:35:53-05:00">
+<meta property="article:modified_time" content="2021-12-14T04:13:48-05:00">
 <title>Contextualizacion | Visual Computing</title>
 <link rel=manifest href=/Computacion-Visual/manifest.json>
 <link rel=icon href=/Computacion-Visual/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/Computacion-Visual/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/Computacion-Visual/flexsearch.min.js></script>
-<script defer src=/Computacion-Visual/en.search.min.830779909b7a14b1b11aeef20dcba1f509e0fc563ee3490f334a7ced00aab870.js integrity="sha256-gwd5kJt6FLGxGu7yDcuh9Qng/FY+40kPM0p87QCquHA=" crossorigin=anonymous></script>
+<script defer src=/Computacion-Visual/en.search.min.7d7136f1ff19414052a7c9994275f13d775654b2efdcdd7274787cd40d5eea4e.js integrity="sha256-fXE28f8ZQUBSp8mZQnXxPXdWVLLv3N1ydHh81A1e6k4=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -155,11 +159,11 @@ Blog
 <ul>
 <li><a href=#tarea-2---implementación-de-un-algoritmo-de-rasterización>TAREA 2 - Implementación de un algoritmo de rasterización</a>
 <ul>
-<li><a href=#rasterización-de-circulos>Rasterización de circulos</a>
-<ul>
-<li><a href=#contextualizacion>Contextualizacion</a></li>
-</ul>
-</li>
+<li><a href=#contextualizacion---rasterización-de-circulos><strong>Contextualizacion - Rasterización de circulos</strong></a></li>
+<li><a href=#definición-de-un-círculo><strong>Definición de un círculo</strong></a></li>
+<li><a href=#propiedades-simetricas-del-círculo><strong>Propiedades simetricas del círculo</strong></a></li>
+<li><a href=#explicación-del-algoritmo><strong>Explicación del algoritmo</strong></a></li>
+<li><a href=#referencias><strong>Referencias</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -170,20 +174,110 @@ Blog
 TAREA 2 - Implementación de un algoritmo de rasterización
 <a class=anchor href=#tarea-2---implementaci%c3%b3n-de-un-algoritmo-de-rasterizaci%c3%b3n>#</a>
 </h1>
-<h2 id=rasterización-de-circulos>
-Rasterización de circulos
-<a class=anchor href=#rasterizaci%c3%b3n-de-circulos>#</a>
+<p><br><br></p>
+<h2 id=contextualizacion---rasterización-de-circulos>
+<strong>Contextualizacion - Rasterización de circulos</strong>
+<a class=anchor href=#contextualizacion---rasterizaci%c3%b3n-de-circulos>#</a>
 </h2>
-<h3 id=contextualizacion>
-Contextualizacion
-<a class=anchor href=#contextualizacion>#</a>
-</h3>
+<p>Este es un algoritmo de muestreo que se efectúa en un dominio discreto, se usa para determinar los puntos necesarios para rasterizar un círculo aprovechando también la simetría del mismo.</p>
+<center>
+<img src=../Assets/images/rastContex1.png width=300 height=300 alt="Base radiosity">
+</center>
+<p>Un ejemplo de ciento cincuenta círculos concéntricos dibujados con el algoritmo de círculo de punto medio.</p>
+<center>
+<img src=../Assets/images/rastCircle.gif width=300 height=300 alt="Base radiosity">
+</center>
+<p><br><br></p>
+<h2 id=definición-de-un-círculo>
+<strong>Definición de un círculo</strong>
+<a class=anchor href=#definici%c3%b3n-de-un-c%c3%adrculo>#</a>
+</h2>
+<p>Un círculo se define como un conjunto de puntos desde el centro (x, y) hasta un valor dado r, entonces la ecuación que define los puntos que pertenecen a esa circunferencia es:</p>
+<blockquote class="book-hint info">
+<link rel=stylesheet href=/Computacion-Visual/katex/katex.min.css>
+<script defer src=/Computacion-Visual/katex/katex.min.js></script>
+<script defer src=/Computacion-Visual/katex/auto-render.min.js onload=renderMathInElement(document.body)></script><span>
+\[(x - x_{c})^{2} + (y - y_{c})^{2} = r^{_{2}}\]
+</span>
+</blockquote>
+<p>donde:</p>
+<span>
+\[{x} = coordenada \; x\\
+{y} = coordenada \; y\\
+{r} = radio \;del \;circulo\]
+</span>
+<p>Despejando y, para muestrear a lo largo de la coordenada x resulta en la siguiente ecuación</p>
+<blockquote class="book-hint info">
+<span>
+\[y = y^{_{c}} \pm \sqrt[]{r_{2} - (x_{c} - x)^{2}}\]
+</span>
+</blockquote>
+<p>Que en coordenadas polares es:</p>
+<blockquote class="book-hint info">
+<span>
+\[x = x_{c} + rcos(\theta ) \\
+y = y_{c} + rsin(\theta )\]
+</span>
+</blockquote>
+<p><br><br></p>
+<h2 id=propiedades-simetricas-del-círculo>
+<strong>Propiedades simetricas del círculo</strong>
+<a class=anchor href=#propiedades-simetricas-del-c%c3%adrculo>#</a>
+</h2>
+<p>Se puede aprovechar la simetría del círculo para trazar ocho puntos para cada valor que calcula el algoritmo como se muestra a continuación:</p>
+<center>
+<img src=../Assets/images/rastContex6.png width=300 height=200 alt="Base radiosity">
+</center>
+<p>El uso de la simetría del círculo puede reducir la cantidad de cálculo. Solo necesita calcular los puntos que deben dibujarse en un octavo círculo y puede mapear todo el círculo.</p>
+<p><br><br></p>
+<h2 id=explicación-del-algoritmo>
+<strong>Explicación del algoritmo</strong>
+<a class=anchor href=#explicaci%c3%b3n-del-algoritmo>#</a>
+</h2>
+<ol>
+<li>Definir el radio r y el centro del círculo (Xc, Yc). Se obtiene el primer punto de una circunferencia centrada en el origen como (x0 , y0) = (0 ,r).</li>
+<li>Luego se define un parámetro de decisión p inicial como:</li>
+</ol>
+<span>
+\[p_{0} = \frac{5}{4} - r\]
+</span>
+<ol start=3>
+<li>Se comienza a muestrear desde el origen con una unidad de longitud en dirección positiva x y se calcula el valor p del parámetro de decisión correspondiente, cumpliendo lo siguiente en la iteración k:</li>
+</ol>
+<blockquote class="book-hint info">
+<span>
+\[Si\; p_{k}&lt; 0, \; entonces\; el\; siguiente\; punto\; es \; (x_{k+1} + x_{c}, y_{k} + x_{c}) \\ y\;\; p_{k+1} = p_{k} + 2 x_{k+1} + 1 \\\\\]
+</span>
+<p><br><br></p>
+<center>
+<span>
+\[Si\; p_{k}\geq 0, \; entonces\; el\; siguiente\; punto\; es\; (x_{k+1} + x_{c}, y_{k-1} + x_{c}) \\y\;\; p_{k+1} = p_{k} + 2 x_{k+1}- 2 y_{k+1} + 1\]
+</span>
+</center>
+</blockquote>
+<p>Entendiendo que:</p>
+<center>
+<img src=../Assets/images/rastContex8.png width=600 height=600 alt="Base radiosity">
+</center>
+<ol start=4>
+<li>De acuerdo con el punto obtenido de p, mapee los puntos en los otros siete octantes que se logran por simetría.</li>
+<li>Repetir los pasos 3 y 4 hasta que se cumpla que x sea mayor o igual a y.</li>
+</ol>
+<p><br><br></p>
+<h2 id=referencias>
+<strong>Referencias</strong>
+<a class=anchor href=#referencias>#</a>
+</h2>
+<p>[1] Wikipedia contributors. (2021, noviembre 20). Midpoint circle algorithm. Wikipedia, The Free Encyclopedia. <a href="https://en.wikipedia.org/w/index.php?title=Midpoint_circle_algorithm&oldid=1056220291">https://en.wikipedia.org/w/index.php?title=Midpoint_circle_algorithm&oldid=1056220291</a></p>
+<p>[2] Algoritmo de círculo de punto medio - programador clic. (s/f). Programmerclick.com. Recuperado el 14 de diciembre de 2021, de <a href=https://programmerclick.com/article/22681023723/>https://programmerclick.com/article/22681023723/</a></p>
+<p>[3] 2.4.3 Algoritmo de Punto Medio - Bresenham. (s/f). Edu.mx. Recuperado el 14 de diciembre de 2021, de <a href=http://cidecame.uaeh.edu.mx/lcc/mapa/PROYECTO/libro23/243_algoritmo_de_punto_medio__bresenham.html>http://cidecame.uaeh.edu.mx/lcc/mapa/PROYECTO/libro23/243_algoritmo_de_punto_medio__bresenham.html</a></p>
+<p>[4] Bresenham Circulo. (s/f). Scribd.com. Recuperado el 14 de diciembre de 2021, de <a href=https://es.scribd.com/document/403059034/Bresenham-Circulo>https://es.scribd.com/document/403059034/Bresenham-Circulo</a></p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/OscarAlvarezRodriguez/Computacion-Visual/commit/275f5a0d7274b4efe86ee3bfa406586030feab19 title="Last modified by oalvarezr | December 12, 2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/OscarAlvarezRodriguez/Computacion-Visual/commit/9c4dead22580d40bd0a60eaf30c2c1f87bd52164 title="Last modified by vviafarae@unal.edu.co | December 14, 2021" target=_blank rel=noopener>
 <img src=/Computacion-Visual/svg/calendar.svg class=book-icon alt=Calendar>
-<span>December 12, 2021</span>
+<span>December 14, 2021</span>
 </a>
 </div>
 </div>
@@ -199,11 +293,11 @@ Contextualizacion
 <ul>
 <li><a href=#tarea-2---implementación-de-un-algoritmo-de-rasterización>TAREA 2 - Implementación de un algoritmo de rasterización</a>
 <ul>
-<li><a href=#rasterización-de-circulos>Rasterización de circulos</a>
-<ul>
-<li><a href=#contextualizacion>Contextualizacion</a></li>
-</ul>
-</li>
+<li><a href=#contextualizacion---rasterización-de-circulos><strong>Contextualizacion - Rasterización de circulos</strong></a></li>
+<li><a href=#definición-de-un-círculo><strong>Definición de un círculo</strong></a></li>
+<li><a href=#propiedades-simetricas-del-círculo><strong>Propiedades simetricas del círculo</strong></a></li>
+<li><a href=#explicación-del-algoritmo><strong>Explicación del algoritmo</strong></a></li>
+<li><a href=#referencias><strong>Referencias</strong></a></li>
 </ul>
 </li>
 </ul>
