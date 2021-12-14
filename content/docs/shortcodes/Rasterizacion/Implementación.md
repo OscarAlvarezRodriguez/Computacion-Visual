@@ -18,7 +18,6 @@ vy = 10;
 
 function setup() {
   createCanvas(600, 600);
-  background(0);
   resetCanvas();
 }
   
@@ -34,6 +33,7 @@ function keyPressed() {
 }
 
 function resetCanvas(){
+  background(0);
   scalFact = width / grids; 
   
   r = vr * scalFact;
@@ -97,5 +97,4 @@ function fillPixel(x, y) {
   fill(squareColor);
   square(x, y, scalFact);
 }
-
 {{< /p5-global-iframe >}}
