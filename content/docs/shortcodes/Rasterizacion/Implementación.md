@@ -7,22 +7,39 @@
 
 {{< p5-global-iframe width="625" height="625" >}}
 
-let x, y, r, d, xc, yc;
+let x, y, r, d, xc, yc,vr,vx,vy;
 
 let i = 0;
 let grids = 20;
 let scalFact;
+vr = 6;
+vx = 10;
+vy = 10;
 
 function setup() {
   createCanvas(600, 600);
   background(0);
+  resetCanvas();
+}
+  
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
-  scalFact = width / grids;
-  r = 6 * scalFact;
+function keyPressed() {
+  vr = getRandomArbitrary(1,8);
+  vx = getRandomArbitrary(5,15);
+  vy = getRandomArbitrary(5,15);
+  resetCanvas();
+}
 
-  xc = 10 * scalFact;
-  yc = 10 * scalFact;
-
+function resetCanvas(){
+  scalFact = width / grids; 
+  
+  r = vr * scalFact;
+  xc = vx * scalFact;
+  yc = vy * scalFact;
+  
   showGrids();
   showRefCircle();
   bresenham();
