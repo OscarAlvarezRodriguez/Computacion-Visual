@@ -2,10 +2,10 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="TAREA 2 - Implementación de un algoritmo de rasterización #  Rasterización de circulos #  Implementación - Algoritmo de Rasterización de Circulo de Bresenham #       let x, y, r, d, xc, yc,vr,vx,vy; let i = 0; let grids = 20; let scalFact; vr = 6; vx = 10; vy = 10; function setup() { createCanvas(600, 600); resetCanvas(); } function getRandomArbitrary(min, max) { return Math.">
+<meta name=description content="TAREA 2 - Implementación de un algoritmo de rasterización #  Rasterización de circulos #  Implementación - Algoritmo de Rasterización de Circulo de Bresenham #       let x, y, r, d, xc, yc,vr,vx,vy; let i = 0; let grids = 30; let scalFact; vr = 6; vx = 10; vy = 10; function setup() { createCanvas(600, 600); scalFact = width / grids; } function getRandomArbitrary(min, max) { return Math.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
-<meta property="og:description" content="TAREA 2 - Implementación de un algoritmo de rasterización #  Rasterización de circulos #  Implementación - Algoritmo de Rasterización de Circulo de Bresenham #       let x, y, r, d, xc, yc,vr,vx,vy; let i = 0; let grids = 20; let scalFact; vr = 6; vx = 10; vy = 10; function setup() { createCanvas(600, 600); resetCanvas(); } function getRandomArbitrary(min, max) { return Math.">
+<meta property="og:description" content="TAREA 2 - Implementación de un algoritmo de rasterización #  Rasterización de circulos #  Implementación - Algoritmo de Rasterización de Circulo de Bresenham #       let x, y, r, d, xc, yc,vr,vx,vy; let i = 0; let grids = 30; let scalFact; vr = 6; vx = 10; vy = 10; function setup() { createCanvas(600, 600); scalFact = width / grids; } function getRandomArbitrary(min, max) { return Math.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://oscaralvarezrodriguez.github.io/Computacion-Visual/docs/shortcodes/Rasterizacion/Implementaci%C3%B3n/"><meta property="article:section" content="docs">
 <title>Implementación | Visual Computing</title>
@@ -13,7 +13,7 @@
 <link rel=icon href=/Computacion-Visual/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/Computacion-Visual/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/Computacion-Visual/flexsearch.min.js></script>
-<script defer src=/Computacion-Visual/en.search.min.0b41653e09f076c6614d0585bf57ecd2eac24096f4b4fc8d97b73d8f69a889d8.js integrity="sha256-C0FlPgnwdsZhTQWFv1fs0urCQJb0tPyNl7c9j2moidg=" crossorigin=anonymous></script>
+<script defer src=/Computacion-Visual/en.search.min.830779909b7a14b1b11aeef20dcba1f509e0fc563ee3490f334a7ced00aab870.js integrity="sha256-gwd5kJt6FLGxGu7yDcuh9Qng/FY+40kPM0p87QCquHA=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -194,7 +194,7 @@ Implementación - Algoritmo de Rasterización de Circulo de Bresenham
 let x, y, r, d, xc, yc,vr,vx,vy;
 
 let i = 0;
-let grids = 20;
+let grids = 30;
 let scalFact;
 vr = 6;
 vx = 10;
@@ -202,7 +202,7 @@ vy = 10;
 
 function setup() {
   createCanvas(600, 600);
-  resetCanvas();
+  scalFact = width / grids;
 }
   
 function getRandomArbitrary(min, max) {
@@ -213,13 +213,12 @@ function keyPressed() {
   vr = getRandomArbitrary(1,8);
   vx = getRandomArbitrary(5,15);
   vy = getRandomArbitrary(5,15);
-  resetCanvas();
+  clear();
+
+  draw();
 }
 
-function resetCanvas(){
-  background(0);
-  scalFact = width / grids; 
-  
+function draw(){  
   r = vr * scalFact;
   xc = vx * scalFact;
   yc = vy * scalFact;
@@ -230,8 +229,10 @@ function resetCanvas(){
 }
 
 function showGrids() {
+  noStroke();
   stroke(200);
-  for (i; i < grids * scalFact; i += scalFact) {
+  fill(200);
+  for (i = 0; i < grids * scalFact; i += scalFact) {
     line(i, 0, i, height);
     line(0, i, width, i);
   }
