@@ -2,19 +2,19 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="TAREA 2 - Indagación sobre método de Iluminación Global #  Radiosidad (Gráficos computacionales) #  Contextualización #  ">
+<meta name=description content="TAREA 2 - Indagación sobre método de Iluminación Global #  Radiosidad (Gráficos computacionales) #  Contextualización #  En gráficos de computadora 3d, la radiosidad es la aplicación del método de elemento finito para resolver la ecuación de rasterización para escenas con superficies que reflejan luz de manera difusa. A diferencia de otros métodos de rasterización que utilizan algoritmos Monte Carlo (como path tracing), donde se manejan todo tipos de caminos de luz, la radiosidad típica solo cuenta los caminos que dejan una fuente de luz y son reflejados de manera difusa algún número de veces antes de golpear el ojo.">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
-<meta property="og:description" content="TAREA 2 - Indagación sobre método de Iluminación Global #  Radiosidad (Gráficos computacionales) #  Contextualización #  ">
+<meta property="og:description" content="TAREA 2 - Indagación sobre método de Iluminación Global #  Radiosidad (Gráficos computacionales) #  Contextualización #  En gráficos de computadora 3d, la radiosidad es la aplicación del método de elemento finito para resolver la ecuación de rasterización para escenas con superficies que reflejan luz de manera difusa. A diferencia de otros métodos de rasterización que utilizan algoritmos Monte Carlo (como path tracing), donde se manejan todo tipos de caminos de luz, la radiosidad típica solo cuenta los caminos que dejan una fuente de luz y son reflejados de manera difusa algún número de veces antes de golpear el ojo.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://oscaralvarezrodriguez.github.io/Computacion-Visual/docs/shortcodes/Indagacion/Contextualizacion/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2021-12-12T04:33:15-05:00">
+<meta property="article:modified_time" content="2021-12-13T21:19:21-05:00">
 <title>Contextualizacion | Visual Computing</title>
 <link rel=manifest href=/Computacion-Visual/manifest.json>
 <link rel=icon href=/Computacion-Visual/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/Computacion-Visual/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/Computacion-Visual/flexsearch.min.js></script>
-<script defer src=/Computacion-Visual/en.search.min.c6fa6f7ebff87fe42603718a395202402c24bae989eb62c68ae9ef7dd9ba768c.js integrity="sha256-xvpvfr/4f+QmA3GKOVICQCwkuumJ62LGiunvfdm6dow=" crossorigin=anonymous></script>
+<script defer src=/Computacion-Visual/en.search.min.5cc87154d0f07712a624c0b8a9b7f8daedae530134580fc69373c9b9c0d1787c.js integrity="sha256-XMhxVNDwdxKmJMC4qbf42u2uUwE0WA/Gk3PJucDReHw=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -178,12 +178,30 @@ Radiosidad (Gráficos computacionales)
 Contextualización
 <a class=anchor href=#contextualizaci%c3%b3n>#</a>
 </h3>
+<p>En gráficos de computadora 3d, la radiosidad es la aplicación del método de elemento finito para resolver la ecuación de rasterización para escenas con superficies que reflejan luz de manera difusa. A diferencia de otros métodos de rasterización que utilizan algoritmos Monte Carlo (como path tracing), donde se manejan todo tipos de caminos de luz, la radiosidad típica solo cuenta los caminos que dejan una fuente de luz y son reflejados de manera difusa algún número de veces antes de golpear el ojo.</p>
+<p>Los métodos de radiosidad fueron primero desarrollados en los 1950 en el campo de ingeniería de transferencia de calor. después fueron refinados específicamente para el problema de renderizado de gráficos de computador en 1984 por investigadores de la Universidad de Cornell y la Universidad de Hiroshima.</p>
+<center>
+<img src=../Assets/images/Radio1.png width=600 height=600 alt="Base radiosity">
+</center>
+<p>En la imagen anterior podemos ver una escena renderizada con RRV, que es una implementación simple de la radiosidad basada en OpenGL, en su interacción número 79.</p>
+<p>La radiosidad es un algoritmo de iluminación global en el sentido que la iluminación que llega a una superficie no proviene solamente de la fuente directa de luz sino también de otras superficies reflejando luz. La radiosidad es independiente del punto de vista del observador, lo cual incrementa el número de cálculos que se necesitan, pero se hace útil para todos los puntos de vista.</p>
+<center>
+<img src=../Assets/images/Radiosity_Comparison.jpg width=600 height=600 alt="Comparacion de Radiosidad">
+</center>
+<p>La inclusión de cálculos de radiosidad en el proceso de renderizado frecuentemente añade un elemento de realismo a la imagen final, por la manera en que mimetiza el fenómeno del mundo real.</p>
+<p>La imagen en la izquierda fue renderizada con un renderizado típico de iluminación directa. Hay tres tipos de luz en esta escena que han sido específicamente escogidos y puestos por el artista en un intento de crear iluminación realista. iluminación Spot con sombras (Ubicada afuera de la ventana para crear la luz brillando en el piso), iluminación de ambiente(Sin esta alguna parte del cuarto que no tenga una iluminación directa estaría totalmente oscura) e iluminación omnidireccional sin sombras(para reducir la planeidad de la iluminación de ambiente).</p>
+<p>La imagen en la derecha fue renderizada utilizando un algoritmo de radiosidad. Solo hay una fuente de luz: una imagen puesta en el cielo afuera de la ventana. La diferencia es marcada, la habitación brilla con luz, las sombras suaves son visibles en el piso y los efectos sutiles de iluminación son notables alrededor del cuarto. Adicionalmente, el color rojo de la alfombra se ha desangrado a las paredes grises, dando una apariencia más cálida. Ninguno de estos efectos fue específicamente escogidos o diseñados por el artista.</p>
+<center>
+<img src=../Assets/images/Radio2.png width=600 height=600 alt=Iteraciones>
+</center>
+<p>A Medida que el algoritmo itera, la luz puede verse fluir en la escena, a medida que múltiples
+rebotes son computados. Parches individuales son visibles como cuadros en las paredes y en el suelo.</p>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/OscarAlvarezRodriguez/Computacion-Visual/commit/94ab85d36961bfcf021cb2c4baea28cc71c09532 title="Last modified by oalvarezr | December 12, 2021" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/OscarAlvarezRodriguez/Computacion-Visual/commit/5f1f794997c68c33e98b0f0d1c4941ff1922bacf title="Last modified by nicarosa | December 14, 2021" target=_blank rel=noopener>
 <img src=/Computacion-Visual/svg/calendar.svg class=book-icon alt=Calendar>
-<span>December 12, 2021</span>
+<span>December 14, 2021</span>
 </a>
 </div>
 </div>
