@@ -10,7 +10,7 @@
 let x, y, r, d, xc, yc,vr,vx,vy;
 
 let i = 0;
-let grids = 20;
+let grids = 30;
 let scalFact;
 vr = 6;
 vx = 10;
@@ -18,7 +18,7 @@ vy = 10;
 
 function setup() {
   createCanvas(600, 600);
-  resetCanvas();
+  scalFact = width / grids;
 }
   
 function getRandomArbitrary(min, max) {
@@ -29,13 +29,12 @@ function keyPressed() {
   vr = getRandomArbitrary(1,8);
   vx = getRandomArbitrary(5,15);
   vy = getRandomArbitrary(5,15);
-  resetCanvas();
+  clear();
+
+  draw();
 }
 
-function resetCanvas(){
-  background(0);
-  scalFact = width / grids; 
-  
+function draw(){  
   r = vr * scalFact;
   xc = vx * scalFact;
   yc = vy * scalFact;
@@ -46,8 +45,10 @@ function resetCanvas(){
 }
 
 function showGrids() {
+  noStroke();
   stroke(200);
-  for (i; i < grids * scalFact; i += scalFact) {
+  fill(200);
+  for (i = 0; i < grids * scalFact; i += scalFact) {
     line(i, 0, i, height);
     line(0, i, width, i);
   }
