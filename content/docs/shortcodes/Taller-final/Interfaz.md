@@ -1,12 +1,12 @@
 
 # Interfaz
-
+{{< p5-global-iframe width="625" height="625" >}}
 let input;
 let img;
 
 function setup() {
   input = createFileInput(handleFile);
-  input.position(0, 0);
+  input.position(20, 20);
 }
 
 function draw() {
@@ -25,3 +25,5 @@ function handleFile(file) {
     img = null;
   }
 }
+
+{{< /p5-global-iframe >}}
