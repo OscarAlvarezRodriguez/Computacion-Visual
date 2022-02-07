@@ -2,4 +2,4 @@
 
 ## Fotomosaico - Hardware
 
-{{< p5-iframe sketch="../../../../sketches/mosaic.js" width="725" height="425" >}}
+{{< p5-iframe sketch="/Computacion-Visual/sketches/mosaic.js" width="610" height="610" >}}
