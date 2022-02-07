@@ -1,27 +1,34 @@
 let imageCells;
+let Cells;
 let pg;
 let mosaic;
 let video_src;
+let debug;
 let cols;
 // ui
 let resolution;
+let sel;
 let video_on;
 let p;
 let image_src;
 const SAMPLE_RES = 30;
+let pal;
+let imgpal;
 
 function preload() {
-  video_src = createVideo(['/vc/sketches/mandrill.webm']);
+  video_src = createVideo(['../../../../sketches/mandrill.webm']);
   video_src.hide();
-  mosaic = readShader('/vc/sketches/photomosaic.frag');
-  image_src = loadImage('/vc/sketches/mandrill.png');
+  mosaic = loadShader('../../../../sketches/photomosaic.frag');
+  image_src = loadImage('../../../../sketches/mandrill.png');
   p = [];
   for (let i = 1; i <= 10; i++) {
-    p.push(loadImage(`/vc/sketches/images/${i}.jpg`));
+    p.push(loadImage(`../../../../sketches/images/${i}.jpg`));
   }
+  console.log("carga completa")
 }
 
 function setup() {
+  console.log("inicio setup")
   createCanvas(650, 650, WEBGL);
   colorMode(RGB, 1);
   imageCells = createQuadrille(p);
