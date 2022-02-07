@@ -2,25 +2,19 @@
 <head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=description content="Interfaz #  let input; let img;
-function setup() { input = createFileInput(handleFile); input.position(0, 0); }
-function draw() { background(255); if (img) { image(img, 0, 0, width, height); } }
-function handleFile(file) { print(file); if (file.type === &lsquo;image&rsquo;) { img = createImg(file.data, &lsquo;'); img.hide(); } else { img = null; } }">
+<meta name=description content="Interfaz #       let input; let img; function setup() { input = createFileInput(handleFile); input.position(20, 20); } function draw() { background(255); if (img) { image(img, 0, 0, width, height); } } function handleFile(file) { print(file); if (file.type === 'image') { img = createImg(file.data, ''); img.hide(); } else { img = null; } }      &#34;  ">
 <meta name=theme-color content="#FFFFFF">
 <meta name=color-scheme content="light dark"><meta property="og:title" content>
-<meta property="og:description" content="Interfaz #  let input; let img;
-function setup() { input = createFileInput(handleFile); input.position(0, 0); }
-function draw() { background(255); if (img) { image(img, 0, 0, width, height); } }
-function handleFile(file) { print(file); if (file.type === &lsquo;image&rsquo;) { img = createImg(file.data, &lsquo;'); img.hide(); } else { img = null; } }">
+<meta property="og:description" content="Interfaz #       let input; let img; function setup() { input = createFileInput(handleFile); input.position(20, 20); } function draw() { background(255); if (img) { image(img, 0, 0, width, height); } } function handleFile(file) { print(file); if (file.type === 'image') { img = createImg(file.data, ''); img.hide(); } else { img = null; } }      &#34;  ">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://oscaralvarezrodriguez.github.io/Computacion-Visual/docs/shortcodes/Taller-final/Interfaz/"><meta property="article:section" content="docs">
-<meta property="article:modified_time" content="2022-02-07T00:01:53-05:00">
+<meta property="article:modified_time" content="2022-02-07T00:03:06-05:00">
 <title>Interfaz | Visual Computing</title>
 <link rel=manifest href=/Computacion-Visual/manifest.json>
 <link rel=icon href=/Computacion-Visual/favicon.png type=image/x-icon>
 <link rel=stylesheet href=/Computacion-Visual/book.min.89a77f7e702a8626749b948bbfb01109823daf6c1246ca407d1378833494c402.css integrity="sha256-iad/fnAqhiZ0m5SLv7ARCYI9r2wSRspAfRN4gzSUxAI=" crossorigin=anonymous>
 <script defer src=/Computacion-Visual/flexsearch.min.js></script>
-<script defer src=/Computacion-Visual/en.search.min.b9cf346ebee1946ec57bbbd51342e61e45eab0f1c65540e0761cde8aa545757a.js integrity="sha256-uc80br7hlG7Fe7vVE0LmHkXqsPHGVUDgdhzeiqVFdXo=" crossorigin=anonymous></script>
+<script defer src=/Computacion-Visual/en.search.min.cec616e86b11684f9c029e58887f7906c7423afc7d7410f14f24b604a926606d.js integrity="sha256-zsYW6GsRaE+cAp5YiH95BsdCOvx9dBDxTyS2BKkmYG0=" crossorigin=anonymous></script>
 </head>
 <body dir=ltr>
 <input type=checkbox class="hidden toggle" id=menu-control>
@@ -188,31 +182,55 @@ Blog
 Interfaz
 <a class=anchor href=#interfaz>#</a>
 </h1>
-<p>let input;
-let img;</p>
-<p>function setup() {
-input = createFileInput(handleFile);
-input.position(0, 0);
-}</p>
-<p>function draw() {
-background(255);
-if (img) {
-image(img, 0, 0, width, height);
+<iframe style=width:625px;height:625px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js></script>
+            
+            
+            
+            
+            
+            <script>
+              
+let input;
+let img;
+
+function setup() {
+  input = createFileInput(handleFile);
+  input.position(20, 20);
 }
-}</p>
-<p>function handleFile(file) {
-print(file);
-if (file.type === &lsquo;image&rsquo;) {
-img = createImg(file.data, &lsquo;');
-img.hide();
-} else {
-img = null;
+
+function draw() {
+  background(255);
+  if (img) {
+    image(img, 0, 0, width, height);
+  }
 }
-}</p>
+
+function handleFile(file) {
+  print(file);
+  if (file.type === 'image') {
+    img = createImg(file.data, '');
+    img.hide();
+  } else {
+    img = null;
+  }
+}
+
+
+            </script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe>
 </article>
 <footer class=book-footer>
 <div class="flex flex-wrap justify-between">
-<div><a class="flex align-center" href=https://github.com/OscarAlvarezRodriguez/Computacion-Visual/commit/f32ed80171aaec36374195c885520c946a1aa6f3 title="Last modified by nicarosa | February 7, 2022" target=_blank rel=noopener>
+<div><a class="flex align-center" href=https://github.com/OscarAlvarezRodriguez/Computacion-Visual/commit/2aebf8ba9b5623363ca2fadcfff1d9a47be0eb97 title="Last modified by nicarosa | February 7, 2022" target=_blank rel=noopener>
 <img src=/Computacion-Visual/svg/calendar.svg class=book-icon alt=Calendar>
 <span>February 7, 2022</span>
 </a>
