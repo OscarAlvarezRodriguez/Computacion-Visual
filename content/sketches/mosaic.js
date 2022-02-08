@@ -10,13 +10,13 @@ let image_src;
 const SAMPLE_RES = 30;
 
 function preload() {
-  video_src = createVideo(['/Computacion-Visual/sketches/mandrill.webm']);
+  video_src = createVideo(['/Computacion-Visual/sketches/video.mp4']);
   video_src.hide();
   mosaic = loadShader('/Computacion-Visual/sketches/shader.vert','/Computacion-Visual/sketches/photomosaic.frag');
-  image_src = loadImage('/Computacion-Visual/sketches/mandrill.png');
+  image_src = loadImage('/Computacion-Visual/sketches/descarga.jpeg');
   p = [];
-  for (let i = 0; i <= 10; i++) {
-    p.push(loadImage(`/Computacion-Visual/sketches/images/${i}.jpg`));
+  for (let i = 1; i <= 17; i++) {
+    p.push(loadImage(`/Computacion-Visual/sketches/imagenesFinal/${i}.jpg`));
   }
 }
 
