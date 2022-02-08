@@ -57,6 +57,15 @@ function sortm() {
   mosaic.setUniform('palette', pg);
 }
 
+function cover(texture = false) {
+  beginShape();
+  vertex(-width / 2, -height / 2, 0, 0, 0);
+  vertex(width / 2, -height / 2, 0, texture ? 1 : 0, 0);
+  vertex(width / 2, height / 2, 0, texture ? 1 : 0, texture ? 1 : 0);
+  vertex(-width / 2, height / 2, 0, 0, texture ? 1 : 0);
+  endShape(CLOSE);
+}
+
 function draw() {
   cover({ texture: true });
 }
