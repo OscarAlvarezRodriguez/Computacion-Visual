@@ -7,7 +7,22 @@ let resolution;
 let video_on;
 let p;
 let image_src;
-const SAMPLE_RES = 30;
+const SAMPLE_RES = 10;
+
+let input;
+let img;
+
+function handleFile(file) {
+  print(file);
+  if (file.type === 'image') {
+    img = createImg(file.data, '');
+    img.hide();
+  } else {
+    img = null;
+  }
+  image_src = loadImage(file.data)
+  mosaic.setUniform('source', image_src);
+}
 
 function preload() {
   video_src = createVideo(['/Computacion-Visual/sketches/video.mp4']);
@@ -22,9 +37,12 @@ function preload() {
 
 function setup() {
   console.log("inicio setup")
+  input = createFileInput(handleFile);
+  input.position(10, 40);
   createCanvas(650, 650, WEBGL);
   colorMode(RGB, 1);
   imageCells = createQuadrille(p);
+  imageCells.sort()
   textureMode(NORMAL);
   noStroke();
   shader(mosaic);
@@ -40,11 +58,11 @@ function setup() {
       video_src.pause();
     }
   });
-  video_on.position(10, 80);
+  video_on.position(10, 10);
   mosaic.setUniform('source', image_src);
-  resolution = createSlider(1, 150, 50, 1);
-  resolution.position(10, 10);
-  resolution.style('width', '80px');
+  resolution = createSlider(1, 500, 0, 1);
+  resolution.position(10, 550);
+  resolution.style('width', '150px');
   resolution.input(() => { mosaic.setUniform('resolution', resolution.value()) });
   mosaic.setUniform('resolution', resolution.value());
   pg = createGraphics(SAMPLE_RES * imageCells.width, SAMPLE_RES);

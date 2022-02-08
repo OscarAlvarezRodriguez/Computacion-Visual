@@ -15,7 +15,7 @@
         id="slide"
         type="range"
         min="1"
-        max="100"
+        max="250"
         step="1"
         value="10"
         onchange="updateSlider(this.value)"
